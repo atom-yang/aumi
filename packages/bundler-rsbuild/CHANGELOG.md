@@ -1,5 +1,11 @@
 # @srs/bundler-rsbuild
 
+## 0.1.3
+
+### Patch Changes
+
+- 修复配置问题
+
 ## 0.1.2
 
 ### Patch Changes
