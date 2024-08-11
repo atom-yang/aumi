@@ -1,0 +1,47 @@
+{
+  "name": "@rumi/bundler-rsbuild",
+  "version": "0.1.0",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "scripts": {
+    "prepare": "modern build",
+    "dev": "modern dev",
+    "build": "modern build",
+    "build:watch": "modern build -w",
+    "new": "modern new",
+    "upgrade": "modern upgrade"
+  },
+  "dependencies": {
+    "@rsdoctor/rspack-plugin": "^0.3.10",
+    "@rsbuild/core": "^1.0.1-beta.10",
+    "@rsbuild/plugin-less": "^1.0.1-beta.10",
+    "@rsbuild/plugin-sass": "^1.0.1-beta.10",
+    "@rsbuild/plugin-stylus": "^1.0.1-beta.10",
+    "@rsbuild/plugin-react": "^1.0.1-beta.10",
+    "@rsbuild/plugin-type-check": "^1.0.1-beta.10",
+    "@rsbuild/plugin-svgr": "^1.0.1-beta.10"
+  },
+  "peerDependencies": {
+    "@umijs/bundler-utils": "4.x",
+    "@umijs/utils": "4.x",
+    "@umijs/core": "4.x"
+  },
+  "devDependencies": {
+    "@umijs/bundler-utils": "4.3.0",
+    "@umijs/utils": "4.3.0",
+    "@umijs/core": "4.3.0",
+    "@modern-js/module-tools": "2.58.0",
+    "@modern-js/eslint-config": "2.58.0",
+    "typescript": "~5.0.4",
+    "@types/node": "~16.11.7",
+    "rimraf": "~6.0.0",
+    "lint-staged": "~15.2.7",
+    "prettier": "~3.3.2",
+    "husky": "~9.0.11"
+  },
+  "sideEffects": [],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

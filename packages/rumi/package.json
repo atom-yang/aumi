@@ -1,0 +1,57 @@
+{
+  "name": "@rumi/rumi",
+  "version": "0.1.0",
+  "types": "index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./esm/index.js",
+  "scripts": {
+    "prepare": "modern build",
+    "dev": "modern dev",
+    "build": "modern build",
+    "build:watch": "modern build -w",
+    "new": "modern new",
+    "upgrade": "modern upgrade"
+  },
+  "bin": {
+    "srs": "bin/srs.js"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "README.md",
+    "client",
+    "index.d.ts",
+    "plugin.js",
+    "plugin-utils.d.ts",
+    "plugin-utils.js",
+    "test-setup.js",
+    "test.js"
+  ],
+  "dependencies": {
+    "@rumi/bundler-rsbuild": "workspace:*"
+  },
+  "peerDependencies": {
+    "umi": "4.x"
+  },
+  "devDependencies": {
+    "umi": "4.3.0",
+    "@umijs/preset-umi": "4.3.0",
+    "@umijs/bundler-utils": "4.3.0",
+    "@umijs/core": "4.3.0",
+    "@umijs/test": "4.3.0",
+    "@umijs/utils": "4.3.0",
+    "@modern-js/module-tools": "2.58.0",
+    "@modern-js/eslint-config": "2.58.0",
+    "typescript": "~5.0.4",
+    "@types/node": "~16.11.7",
+    "rimraf": "~6.0.0",
+    "lint-staged": "~15.2.7",
+    "prettier": "~3.3.2",
+    "husky": "~9.0.11"
+  },
+  "sideEffects": [],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
