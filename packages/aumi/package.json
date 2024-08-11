@@ -13,19 +13,12 @@
     "upgrade": "modern upgrade"
   },
   "bin": {
-    "srs": "bin/srs.js"
+    "aumi": "bin/aumi.js"
   },
   "files": [
     "bin",
     "dist",
-    "README.md",
-    "client",
-    "index.d.ts",
-    "plugin.js",
-    "plugin-utils.d.ts",
-    "plugin-utils.js",
-    "test-setup.js",
-    "test.js"
+    "README.md"
   ],
   "dependencies": {
     "@aumi/bundler-rsbuild": "workspace:*"
