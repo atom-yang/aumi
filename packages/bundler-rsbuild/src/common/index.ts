@@ -41,32 +41,34 @@ export const convertBundlerConfigToRsbuildConfig = async (
   const plugins: RsbuildPlugins = [];
   if (config?.lessLoader !== false) {
     logger.info(`启用Rsbuild插件plugin-less`);
-    pluginLess({
-      lessLoaderOptions(options) {
-        if (lodash.isObject(config?.lessLoader ?? {})) {
-          const lessLoaderOptions = (config?.lessLoader ?? {}) as Record<
-            string,
-            any
-          >;
-          return {
-            ...options,
-            ...lessLoaderOptions,
-            lessOptions: {
-              ...(options.lessOptions ?? {}),
-              ...(lessLoaderOptions?.lessOptions ?? {}),
-              modifyVars: {
-                ...(options.lessOptions?.modifyVars ?? {}),
-                ...(lessLoaderOptions?.lessOptions?.modifyVars ?? {}),
-                ...(config.theme ?? {}),
+    plugins.push(
+      pluginLess({
+        lessLoaderOptions(options) {
+          if (lodash.isObject(config?.lessLoader ?? {})) {
+            const lessLoaderOptions = (config?.lessLoader ?? {}) as Record<
+              string,
+              any
+            >;
+            return {
+              ...options,
+              ...lessLoaderOptions,
+              lessOptions: {
+                ...(options.lessOptions ?? {}),
+                ...(lessLoaderOptions?.lessOptions ?? {}),
+                modifyVars: {
+                  ...(options.lessOptions?.modifyVars ?? {}),
+                  ...(lessLoaderOptions?.lessOptions?.modifyVars ?? {}),
+                  ...(config.theme ?? {}),
+                },
               },
-            },
-          };
-        }
-        return options;
-      },
-    });
+            };
+          }
+          return options;
+        },
+      }),
+    );
   }
-  if (config?.react) {
+  if (config?.react !== false) {
     logger.info(`启用Rsbuild插件plugin-react`);
     const reactOptions = lodash.isObject(config?.react ?? {})
       ? (config.react as Record<string, any>)
@@ -140,7 +142,12 @@ export const convertBundlerConfigToRsbuildConfig = async (
       assetPrefix: config.publicPath,
       charset: 'utf8',
       copy: config.copy,
-      cssModules: config.cssLoaderModules,
+      cssModules: {
+        ...config.cssLoaderModules,
+        auto: config.autoCSSModules
+          ? () => true
+          : config?.cssLoaderModules?.auto ?? true,
+      },
       externals: config.externals,
       dataUriLimit: config.inlineLimit,
       polyfill: config.polyfill ?? 'usage',

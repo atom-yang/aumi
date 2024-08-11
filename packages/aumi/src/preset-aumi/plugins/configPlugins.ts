@@ -165,6 +165,7 @@ export default (api: IApi) => {
           }
         : {}),
     },
+    autoCSSModules: true,
     publicPath: '/',
     mountElementId: 'root',
     base: '/',
@@ -205,6 +206,7 @@ export default (api: IApi) => {
       '@': args.paths.absSrcPath,
       '@@': args.paths.absTmpPath,
     };
+    memo.terminal = false;
     return memo;
   });
 };

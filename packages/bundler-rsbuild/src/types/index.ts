@@ -97,8 +97,7 @@ export interface RUMIConfig {
   alias?: SourceConfig['alias'];
   aliasStrategy?: SourceConfig['aliasStrategy'];
   // 是否自动处理css modules，在import时如果有?modules则应用cssModules规则
-  // 不支持
-  // autoCSSModules?: boolean;
+  autoCSSModules?: boolean;
   // 废弃，改用.browserlistrc
   // autoprefixer?: Record<string, any>;
   /**

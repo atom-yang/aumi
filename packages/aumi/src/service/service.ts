@@ -1,4 +1,4 @@
-import { join, resolve } from 'path';
+import { dirname, join, resolve } from 'path';
 import { existsSync } from 'fs';
 import { Env, Service as CoreService } from '@umijs/core';
 import { FRAMEWORK_NAME, DEFAULT_CONFIG_FILES } from 'umi/dist/constants';
@@ -8,6 +8,13 @@ type IOpts = ConstructorParameters<typeof CoreService>[0];
 
 export class Service extends CoreService {
   constructor(opts?: IOpts) {
+    process.env.UMI_DIR = resolve(require.resolve('umi'), '../../');
+    // Why?
+    // plugin import from umi but don't explicitly depend on it
+    // and we may also have old umi installed
+    // ref: https://github.com/umijs/umi/issues/8342#issuecomment-1182654076
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    require('umi/dist/service/requireHook');
     const cwd = getCwd();
     super({
       ...opts,

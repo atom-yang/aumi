@@ -4,6 +4,6 @@ import type { RUMIConfig } from '@aumi/bundler-rsbuild';
 
 type ConfigType = IConfigFromPlugins & RUMIConfig;
 
-export const defineRUMIConfig = (config: ConfigType): ConfigType => {
+export const defineAUMIConfig = (config: ConfigType): ConfigType => {
   return config;
 };
