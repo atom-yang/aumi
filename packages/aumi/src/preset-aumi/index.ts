@@ -141,7 +141,7 @@ export default () => {
       resolvePresetUmiPath('./commands/preview'),
       // 暂不提供mfsu
       // resolvePresetUmiPath('./commands/mfsu/mfsu'),
-      resolvePresetUmiPath('@umijs/plugin-run'),
-    ],
+      require.resolve('@umijs/plugin-run'),
+    ].filter(Boolean),
   };
 };
