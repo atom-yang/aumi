@@ -1,5 +1,11 @@
 # @srs/bundler-rsbuild
 
+## 0.1.1
+
+### Patch Changes
+
+- 变更 bin 名称
+
 ## 0.1.11
 
 ### Patch Changes
