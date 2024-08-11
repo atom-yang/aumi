@@ -1,5 +1,11 @@
 # @srs/bundler-rsbuild
 
+## 0.1.2
+
+### Patch Changes
+
+- 更改 dev command
+
 ## 0.1.1
 
 ### Patch Changes
