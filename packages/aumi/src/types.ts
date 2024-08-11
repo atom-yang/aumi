@@ -3,11 +3,11 @@ import {
   RsbuildBundlerConfig,
   RsbuildPlugins,
   RUMIConfig,
-} from '@rumi/bundler-rsbuild';
+} from '@aumi/bundler-rsbuild';
 import { IModify, Env } from '@umijs/core';
 import { EnableBy, IPluginConfig } from '@umijs/core/dist/types';
 
-export type { RUMIConfig } from '@rumi/bundler-rsbuild';
+export type { RUMIConfig } from '@aumi/bundler-rsbuild';
 
 type ModifyRsbuildConfigParameter = Parameters<
   Required<RsbuildBundlerConfig>['modifyRsbuildConfig']

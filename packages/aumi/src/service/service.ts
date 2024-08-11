@@ -16,7 +16,7 @@ export class Service extends CoreService {
       defaultConfigFiles: opts?.defaultConfigFiles || DEFAULT_CONFIG_FILES,
       frameworkName: opts?.frameworkName || FRAMEWORK_NAME,
       presets: [
-        resolve(__dirname, '../preset-rumi/index'),
+        resolve(__dirname, '../preset-aumi/index'),
         ...(opts?.presets || []),
       ],
       plugins: [

@@ -10,7 +10,7 @@ import {
   ILink,
   HTMLTag,
   MetaOptions,
-} from '@rumi/bundler-rsbuild';
+} from '@aumi/bundler-rsbuild';
 import { IApi } from '@/types';
 
 export async function generateFile(api: IApi) {

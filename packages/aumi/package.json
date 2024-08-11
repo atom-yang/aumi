@@ -1,5 +1,5 @@
 {
-  "name": "@rumi/rumi",
+  "name": "@aumi/aumi",
   "version": "0.1.0",
   "types": "index.d.ts",
   "main": "./dist/index.js",
@@ -28,7 +28,7 @@
     "test.js"
   ],
   "dependencies": {
-    "@rumi/bundler-rsbuild": "workspace:*"
+    "@aumi/bundler-rsbuild": "workspace:*"
   },
   "peerDependencies": {
     "umi": "4.x"

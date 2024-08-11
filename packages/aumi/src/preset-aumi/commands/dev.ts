@@ -1,4 +1,4 @@
-import { RsbuildBundlerConfig, build } from '@rumi/bundler-rsbuild';
+import { RsbuildBundlerConfig, build } from '@aumi/bundler-rsbuild';
 import { commonBuildPhase, generateFile } from './utils';
 import { IApi } from '@/types';
 

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "monorepo",
+  "name": "aumi",
   "scripts": {
     "new": "modern new",
     "reset": "modern clear",
@@ -16,7 +16,7 @@
     "upgrade": "modern upgrade"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=16"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,mjs,cjs}": [
@@ -47,8 +47,5 @@
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
-  },
-  "resolutions": {
-    "@babel/runtime": "7.24.8"
   }
 }

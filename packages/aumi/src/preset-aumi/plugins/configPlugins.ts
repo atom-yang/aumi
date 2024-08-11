@@ -1,6 +1,6 @@
 import { dirname, join } from 'path';
 import { resolve } from '@umijs/utils';
-import { RUMIConfig } from '@rumi/bundler-rsbuild';
+import { RUMIConfig } from '@aumi/bundler-rsbuild';
 import type { IApi } from '@/types';
 
 function resolveProjectDep(opts: {
@@ -25,7 +25,7 @@ function resolveProjectDep(opts: {
 }
 
 const InnerConfigList = [
-  // rumi新增的
+  // aumi新增的
   'rsbuildConfig',
   'rspack',
   'react',
