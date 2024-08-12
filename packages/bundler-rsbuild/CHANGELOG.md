@@ -1,5 +1,11 @@
 # @srs/bundler-rsbuild
 
+## 0.1.4
+
+### Patch Changes
+
+- 增加文档与默认 target
+
 ## 0.1.3
 
 ### Patch Changes

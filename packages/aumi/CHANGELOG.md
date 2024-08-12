@@ -1,5 +1,13 @@
 # @aumi/aumi
 
+## 0.1.4
+
+### Patch Changes
+
+- 增加文档与默认 target
+- Updated dependencies
+  - @aumi/bundler-rsbuild@0.1.4
+
 ## 0.1.3
 
 ### Patch Changes
