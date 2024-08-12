@@ -151,7 +151,11 @@ export const convertBundlerConfigToRsbuildConfig = async (
       externals: config.externals,
       dataUriLimit: config.inlineLimit,
       polyfill: config.polyfill ?? 'usage',
-      overrideBrowserslist: convertToBrowserList(config.targets ?? {}),
+      overrideBrowserslist: convertToBrowserList(
+        config.targets ?? {
+          chrome: 80,
+        },
+      ),
       filenameHash: config.hash,
       distPath: {
         root: config.outputPath,

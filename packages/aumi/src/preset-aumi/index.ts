@@ -10,7 +10,7 @@ export default () => {
       // 注册hook方法
       require.resolve('@umijs/preset-umi/dist/registerMethods'),
       // 必须在preset-umi的后面
-      require.resolve('./RUMIRegisterMethods'),
+      require.resolve('./AUMIRegisterMethods'),
       // features
       // 不需要
       // process.env.DID_YOU_KNOW !== 'none' &&

@@ -185,8 +185,6 @@ export interface RUMIConfig {
   // 不支持mfsu，改为rsbuild的mfsu
   moduleFederation?: ModuleFederationConfig['options'];
   outputPath?: string;
-  // pnpm不需要。其他的可以通过eslint规则来实现
-  // phantomDependency
   // 插件名称声明
   plugins?: string[];
   npmClient?: 'yarn' | 'pnpm' | 'npm';
