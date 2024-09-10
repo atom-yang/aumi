@@ -22,6 +22,8 @@ AUmi switches Umi's default bundler from Webpack to [Rsbuild](https://rsbuild.de
 
 **Notice: Make sure your Umi version is >= 4.0**
 
+**Notice: V**
+
 ### Installation
 
 ```bash

@@ -12,14 +12,14 @@
     "upgrade": "modern upgrade"
   },
   "dependencies": {
-    "@rsdoctor/rspack-plugin": "^0.3.10",
-    "@rsbuild/core": "^1.0.1-beta.10",
-    "@rsbuild/plugin-less": "^1.0.1-beta.10",
-    "@rsbuild/plugin-sass": "^1.0.1-beta.10",
-    "@rsbuild/plugin-stylus": "^1.0.1-beta.10",
-    "@rsbuild/plugin-react": "^1.0.1-beta.10",
-    "@rsbuild/plugin-type-check": "^1.0.1-beta.10",
-    "@rsbuild/plugin-svgr": "^1.0.1-beta.10"
+    "@rsdoctor/rspack-plugin": "^0.4.1",
+    "@rsbuild/core": "^1.0.1",
+    "@rsbuild/plugin-less": "^1.0.1",
+    "@rsbuild/plugin-sass": "^1.0.1",
+    "@rsbuild/plugin-stylus": "^1.0.1",
+    "@rsbuild/plugin-react": "^1.0.1",
+    "@rsbuild/plugin-type-check": "^1.0.1",
+    "@rsbuild/plugin-svgr": "^1.0.1"
   },
   "peerDependencies": {
     "@umijs/bundler-utils": "4.x",

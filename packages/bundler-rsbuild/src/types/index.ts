@@ -13,15 +13,10 @@ import {
   RsbuildConfig,
   HtmlTagDescriptor,
   ModuleFederationConfig,
+  Rspack,
 } from '@rsbuild/core';
 import type { PluginSassOptions } from '@rsbuild/plugin-sass';
-import type {
-  MaybePromise,
-  Stats,
-  MetaOptions,
-  RspackConfig,
-  MultiStats,
-} from '@rsbuild/core/dist-types/types';
+import type { MaybePromise, MetaOptions } from '@rsbuild/core/dist-types/types';
 import type { PluginTypeCheckerOptions } from '@rsbuild/plugin-type-check';
 import type { PluginStylusOptions } from '@rsbuild/plugin-stylus';
 import type { PluginLessOptions } from '@rsbuild/plugin-less';
@@ -30,6 +25,11 @@ import type { PluginSvgrOptions } from '@rsbuild/plugin-svgr';
 import { Express, RequestHandler } from '@umijs/bundler-utils/compiled/express';
 // import type { PostCSSPlugin } from '@rsbuild/core/dist-types/types/thirdParty';
 import { Env } from '@umijs/core';
+
+export type MultiStats = Rspack.MultiStats;
+export type Stats = Rspack.Stats;
+
+export type RspackConfig = Rspack.RspackOptions;
 
 export type { MetaOptions } from '@rsbuild/core/dist-types/types';
 

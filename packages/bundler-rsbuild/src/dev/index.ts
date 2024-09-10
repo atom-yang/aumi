@@ -1,4 +1,3 @@
-import { MultiStats, Stats } from '@rsbuild/core/dist-types/types';
 import { logger } from '@umijs/utils';
 import express from '@umijs/bundler-utils/compiled/express';
 import {
@@ -7,7 +6,7 @@ import {
   loadConfig,
   mergeRsbuildConfig,
 } from '@rsbuild/core';
-import { RsbuildBundlerConfig } from '@/types';
+import { RsbuildBundlerConfig, MultiStats, Stats } from '@/types';
 import { convertBundlerConfigToRsbuildConfig } from '@/common';
 
 export async function dev(bundlerConfig: RsbuildBundlerConfig) {
@@ -57,8 +56,7 @@ export async function dev(bundlerConfig: RsbuildBundlerConfig) {
       // 通知 Rsbuild 自定义 Server 已启动
       await rsbuildServer.afterListen();
     });
-    // 订阅服务器的 http 升级事件来处理 WebSocket 升级
-    httpServer.on('upgrade', rsbuildServer.onHTTPUpgrade);
+    rsbuildServer.connectWebSocket({ server: httpServer });
   } catch (err) {
     logger.error('Failed to start dev server.');
     logger.error(err);

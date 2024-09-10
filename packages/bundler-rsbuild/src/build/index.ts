@@ -3,15 +3,13 @@ import {
   loadConfig,
   mergeRsbuildConfig,
   RsbuildConfig,
-  RsbuildMode,
 } from '@rsbuild/core';
-import { MultiStats, Stats } from '@rsbuild/core/dist-types/types';
 import { logger } from '@umijs/utils';
 import { convertBundlerConfigToRsbuildConfig } from '@/common';
-import { RsbuildBundlerConfig } from '@/types';
+import { RsbuildBundlerConfig, Stats, MultiStats } from '@/types';
 
 export async function build(bundlerConfig: RsbuildBundlerConfig) {
-  const { watch, env, cwd, onBuildComplete } = bundlerConfig;
+  const { watch, cwd, onBuildComplete } = bundlerConfig;
   const { content: contentFromFile, filePath } = await loadConfig({
     cwd,
   });
@@ -40,7 +38,6 @@ export async function build(bundlerConfig: RsbuildBundlerConfig) {
       });
     });
     await rsbuild.build({
-      mode: env as RsbuildMode,
       watch: watch ?? false,
     });
   } catch (e) {
