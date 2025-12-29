@@ -1,0 +1,36 @@
+{
+  "name": "@aumi/dynamic-value-engine",
+  "version": "1.0.0",
+  "description": "动态值计算引擎，支持多种计算方式：json-logic、json-rule-engine、源码执行、模板表达式",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "dynamic-value",
+    "json-logic",
+    "json-rule-engine",
+    "template-engine",
+    "calculation"
+  ],
+  "dependencies": {
+    "json-logic-js": "^2.0.2",
+    "json-rules-engine": "^6.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.4.2"
+  },
+  "author": "",
+  "license": "MIT"
+}
