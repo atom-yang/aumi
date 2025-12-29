@@ -21,7 +21,9 @@
     "README.md"
   ],
   "dependencies": {
-    "@aumi/bundler-rsbuild": "workspace:*"
+    "@aumi/bundler-rsbuild": "workspace:*",
+    "json-logic-js": "^2.0.5",
+    "json-rules-engine": "^7.3.1"
   },
   "peerDependencies": {
     "umi": "4.x"
