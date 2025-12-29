@@ -1,0 +1,63 @@
+{
+  "name": "@aumi/dynamic-value",
+  "version": "1.0.0",
+  "description": "动态值计算模块 - 支持 JSON Logic、JSON Rule Engine、模板表达式、脚本执行",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "modern build",
+    "dev": "modern build --watch",
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "dynamic-value",
+    "json-logic",
+    "json-rules-engine",
+    "template",
+    "expression",
+    "script",
+    "rule-engine"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {
+    "json-logic-js": "^2.0.0",
+    "json-rules-engine": "^6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "json-logic-js": {
+      "optional": true
+    },
+    "json-rules-engine": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@modern-js/module-tools": "2.58.0",
+    "@types/node": "^20.0.0",
+    "json-logic-js": "^2.0.5",
+    "json-rules-engine": "^6.5.0",
+    "typescript": "^5.4.2",
+    "vitest": "^1.6.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

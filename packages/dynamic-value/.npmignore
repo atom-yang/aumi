@@ -1,0 +1,8 @@
+src/
+tests/
+*.ts
+!*.d.ts
+tsconfig.json
+modern.config.ts
+.eslintrc.js
+vitest.config.ts
