@@ -68,6 +68,55 @@ console.log(result.value); // true
 
 **支持的操作符**：`==`, `!=`, `>`, `>=`, `<`, `<=`, `and`, `or`, `not`, `if`, `var`, `in`, `cat`, `substr`, `map`, `filter`, `reduce` 等。
 
+#### JSON Logic 高级选项
+
+JSON Logic 引擎支持丰富的 options 配置：
+
+```typescript
+import { JsonLogicOptions } from '@aumi/dynamic-value-engine';
+
+const options: JsonLogicOptions = {
+  // 自定义操作符
+  customOperators: {
+    startsWith: (str: string, prefix: string) => str.startsWith(prefix),
+    multiply: (a: number, b: number) => a * b,
+  },
+  
+  // 启用内置扩展（40+ 个实用操作符）
+  builtInExtensions: true,
+  
+  // 严格模式：变量不存在时抛出错误
+  strictMode: true,
+  
+  // 调试模式：输出详细日志
+  debug: true,
+  
+  // 上下文转换
+  transformContext: (ctx) => ({
+    ...ctx,
+    _timestamp: Date.now(),
+  }),
+  
+  // 结果后处理
+  postProcess: (result) => {
+    return typeof result === 'number' ? result.toFixed(2) : result;
+  },
+};
+
+const result = await calculator.jsonLogic(expression, context, options);
+```
+
+**内置扩展操作符**（`builtInExtensions: true`）包含 40+ 个实用操作符：
+
+- **字符串**：`startsWith`, `endsWith`, `includes`, `toUpperCase`, `toLowerCase`, `trim`, `replace`, `split`, `join`
+- **类型检查**：`isEmpty`, `isNotEmpty`, `isNull`, `isNumber`, `isString`, `isArray`, `isObject`
+- **数组**：`length`, `first`, `last`, `reverse`, `unique`, `flatten`, `sort`
+- **数学**：`abs`, `ceil`, `floor`, `round`, `pow`, `sqrt`, `random`
+- **对象**：`keys`, `values`, `entries`, `has`
+- **其他**：`regex`, `now`, `dateFormat`, `default`, `coalesce`
+
+📖 查看完整文档：[JSON Logic Options 详细说明](./docs/JSON_LOGIC_OPTIONS.md)
+
 ### 2. JSON Rule Engine
 
 基于 [json-rules-engine](https://github.com/CacheControl/json-rules-engine) 的规则引擎。

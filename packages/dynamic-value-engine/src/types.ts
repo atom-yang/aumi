@@ -132,3 +132,85 @@ export interface SourceCodeOptions {
   /** 允许的全局变量白名单 */
   allowedGlobals?: string[];
 }
+
+/**
+ * JSON Logic 引擎选项
+ */
+export interface JsonLogicOptions {
+  /** 
+   * 自定义操作符
+   * 键为操作符名称，值为操作符函数
+   * @example
+   * {
+   *   'startsWith': (str: string, prefix: string) => str.startsWith(prefix),
+   *   'multiply': (a: number, b: number) => a * b
+   * }
+   */
+  customOperators?: Record<string, (...args: any[]) => any>;
+
+  /**
+   * 启用内置扩展操作符
+   * 包括：startsWith, endsWith, includes, isEmpty, isNotEmpty, 
+   * length, toUpperCase, toLowerCase, trim, regex 等
+   * @default false
+   */
+  builtInExtensions?: boolean;
+
+  /**
+   * 严格模式
+   * 当为 true 时，访问不存在的变量会抛出错误
+   * @default false
+   */
+  strictMode?: boolean;
+
+  /**
+   * 变量不存在时的默认值
+   * 仅在非严格模式下生效
+   * @default undefined
+   */
+  defaultValue?: any;
+
+  /**
+   * 上下文转换函数
+   * 在执行表达式前对上下文进行转换
+   * @example
+   * (ctx) => ({ ...ctx, timestamp: Date.now() })
+   */
+  transformContext?: (context: Context) => Context;
+
+  /**
+   * 调试模式
+   * 启用后会输出详细的执行日志
+   * @default false
+   */
+  debug?: boolean;
+
+  /**
+   * 自定义变量解析器
+   * 用于自定义 var 操作符的行为
+   * @example
+   * (path: string, context: Context) => customGetValue(context, path)
+   */
+  customVarResolver?: (path: string | number, context: Context, defaultValue?: any) => any;
+
+  /**
+   * 结果后处理函数
+   * 在返回结果前对结果进行转换
+   * @example
+   * (result) => typeof result === 'string' ? result.trim() : result
+   */
+  postProcess?: (result: any) => any;
+
+  /**
+   * 是否清除之前注册的自定义操作符
+   * @default false
+   */
+  clearPreviousOperators?: boolean;
+
+  /**
+   * 最大执行深度限制
+   * 防止无限递归
+   * @default 100
+   */
+  maxDepth?: number;
+}

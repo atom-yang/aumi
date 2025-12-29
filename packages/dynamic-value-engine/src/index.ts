@@ -27,6 +27,7 @@ export {
   JsonRuleEngineRule,
   TemplateOptions,
   SourceCodeOptions,
+  JsonLogicOptions,
 } from './types';
 
 // 默认导出

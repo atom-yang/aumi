@@ -82,6 +82,64 @@ console.log(result.value); // true
 - 字符串：`cat`, `substr`, `in`（字符串包含）
 - 算术：`+`, `-`, `*`, `/`, `%`, `max`, `min`
 
+#### JSON Logic 高级选项
+
+JSON Logic 引擎支持丰富的 options 配置：
+
+```typescript
+import { JsonLogicOptions } from '@aumi/dynamic-value-engine';
+
+const options: JsonLogicOptions = {
+  // 自定义操作符
+  customOperators: {
+    startsWith: (str: string, prefix: string) => str.startsWith(prefix),
+    multiply: (a: number, b: number) => a * b,
+  },
+  
+  // 启用内置扩展（40+ 个实用操作符）
+  builtInExtensions: true,
+  
+  // 严格模式：变量不存在时抛出错误
+  strictMode: true,
+  
+  // 调试模式：输出详细日志
+  debug: true,
+  
+  // 上下文转换
+  transformContext: (ctx) => ({
+    ...ctx,
+    _timestamp: Date.now(),
+  }),
+  
+  // 结果后处理
+  postProcess: (result) => {
+    return typeof result === 'number' ? result.toFixed(2) : result;
+  },
+  
+  // 自定义变量解析器
+  customVarResolver: (path, context, defaultValue) => {
+    // 自定义变量访问逻辑
+    return context[path] || defaultValue;
+  },
+  
+  // 最大执行深度
+  maxDepth: 100,
+};
+
+const result = await calculator.jsonLogic(expression, context, options);
+```
+
+**内置扩展操作符**（`builtInExtensions: true`）：
+
+- **字符串**：`startsWith`, `endsWith`, `includes`, `toUpperCase`, `toLowerCase`, `trim`, `replace`, `split`, `join`
+- **类型检查**：`isEmpty`, `isNotEmpty`, `isNull`, `isNumber`, `isString`, `isArray`, `isObject`
+- **数组**：`length`, `first`, `last`, `reverse`, `unique`, `flatten`, `sort`
+- **数学**：`abs`, `ceil`, `floor`, `round`, `pow`, `sqrt`, `random`
+- **对象**：`keys`, `values`, `entries`, `has`
+- **其他**：`regex`, `now`, `dateFormat`, `default`, `coalesce`
+
+📖 查看完整文档：[JSON Logic Options 详细说明](./docs/JSON_LOGIC_OPTIONS.md)
+
 ### 2. JSON Rule Engine 引擎
 
 基于 [json-rules-engine](https://github.com/CacheControl/json-rules-engine) 的规则引擎。
@@ -424,6 +482,40 @@ interface TemplateOptions {
    - 纯数据驱动，无代码执行风险
    - 推荐用于需要高安全性的场景
 
+## 📚 文档导航
+
+### 核心文档
+- 📖 [README.md](./README.md) - 完整的使用指南
+- 📖 [README.zh-CN.md](./README.zh-CN.md) - 中文版完整文档（本文档）
+- 🚀 [GETTING_STARTED.md](./GETTING_STARTED.md) - 5分钟快速开始
+
+### Options 配置文档
+- 🔧 [JSON Logic Options 详细说明](./docs/JSON_LOGIC_OPTIONS.md) - JsonLogicEngine 的完整配置指南
+- 📊 [所有引擎 Options 汇总](./docs/OPTIONS_SUMMARY.md) - 所有引擎的 options 对比
+- ⚡ [快速参考手册](./docs/QUICK_REFERENCE.md) - 常用配置速查
+
+### 示例代码
+- 💡 [基础使用示例](./examples/basic-usage.ts) - 四种引擎的基础用法
+- 🎯 [高级使用示例](./examples/advanced-usage.ts) - 批量计算、自定义操作符等
+- 🏢 [实际应用场景](./examples/real-world-scenarios.ts) - 5个真实业务场景
+- 🔍 [JSON Logic Options 示例](./examples/json-logic-options.ts) - 所有 options 的使用示例
+
+### 运行示例
+
+```bash
+# 基础示例
+npx ts-node examples/basic-usage.ts
+
+# 高级示例
+npx ts-node examples/advanced-usage.ts
+
+# JSON Logic Options 示例
+npx ts-node examples/json-logic-options.ts
+
+# 实际场景示例
+npx ts-node examples/real-world-scenarios.ts
+```
+
 ## 📝 最佳实践
 
 1. **选择合适的引擎**：
@@ -441,11 +533,13 @@ interface TemplateOptions {
    - 独立计算使用并行模式
    - 避免在循环中创建计算器实例
    - 复用引擎实例
+   - 只在需要时启用 `builtInExtensions`
 
 4. **错误处理**：
    - 始终检查 `result.success`
    - 记录 `result.error` 便于调试
    - 使用 try-catch 包裹异步调用
+   - 生产环境使用 `strictMode` 确保数据完整性
 
 ## 🤝 贡献
 
