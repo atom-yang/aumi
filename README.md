@@ -1,3 +1,5 @@
+
+
 # AUmi
 
 <p>
@@ -60,7 +62,7 @@ Due to compatibility or lacking of testing, cannot support the following configu
 | exportStatic         | Not tested                                                                                                           | 无                                                                                                                                                  |
 | extraPostCSSPlugins  | Switching to `postcssLoader` configuration                                                                           | Use `postcssLoader` configuration of `.umirc.ts`, check [Rsbuild](https://rsbuild.dev/zh/config/tools/postcss) for details                          |
 | forget               | Not tested                                                                                                           | None                                                                                                                                                |
-| jsMinifier           | Switching to `minify` configuration                                                                                  | Use `minify` configuration of `.umirc.ts`, check [Rsbuid](https://rsbuild.dev/zh/config/output/minify) for details                                  |
+| jsMinifier           | Switching to `minify` configuration                                                                                  | Use `minify` configuration of `.umirc.ts`, check [Rsbuild](https://rsbuild.dev/zh/config/output/minify) for details                                  |
 | jsMinifierOptions    | As above                                                                                                             | As above                                                                                                                                            |
 | legacy               | Not supported                                                                                                        | None                                                                                                                                                |
 | mdx                  | Not supported                                                                                                        | Use `chainWebpack` function of `.umirc.ts`                                                                                                          |
@@ -152,7 +154,3 @@ api.modifyRsbuildConfig(config => {
 ## Remain issues
 
 TODO
-
-
-
-
